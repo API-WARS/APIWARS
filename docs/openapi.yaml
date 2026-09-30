@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: Mi API de hackathon
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      summary: Estado del servicio
+      responses:
+        '200':
+          description: OK
+  /api/v1/items:
+    get:
+      summary: Lista de items
+      responses:
+        '200':
+          description: Lista de items

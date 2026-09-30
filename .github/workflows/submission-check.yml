@@ -1,0 +1,12 @@
+name: Submission check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archivos y secciones obligatorias
+        run: |
+          test -f docs/openapi.yaml || (echo "Falta docs/openapi.yaml" && exit 1)
+          grep -q "## Demo" README.md || (echo "Falta la sección Demo" && exit 1)
+          grep -q "## Cómo correrlo" README.md || (echo "Falta la sección Cómo correrlo" && exit 1)
